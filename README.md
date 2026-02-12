@@ -42,6 +42,20 @@ O projeto utiliza o que há de mais moderno no ecossistema React/Node:
 - **Forms & Validation:** React Hook Form + Zod
 - **Data Visualization:** TanStack Table + Recharts
 
+## 🏁 Setup & Rodar
+
+```bash
+# Instalar dependências (recomendado: rodar fora do Google Drive para evitar conflitos)
+npm install
+
+# Desenvolvimento
+npm run dev
+```
+
+Acesse [http://localhost:3000](http://localhost:3000) para ver o Shell com tema **Deep Tech**.
+
+> **Nota:** Se `npm install` falhar por causa do caminho no Google Drive, clone o repositório em uma pasta local (ex: `C:\dev\mastersystem`) e rode os comandos lá.
+
 ## 📂 Estrutura do Projeto (Architecture)
 
 O sistema segue uma arquitetura modular baseada em domínios (DDD):
