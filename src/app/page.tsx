@@ -28,17 +28,17 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-10">
-      <div>
-        <h1 className="text-2xl font-bold text-erp-light">
+      <div className="pb-2">
+        <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
           Financeiro · Comércio Exterior
         </h1>
-        <p className="mt-1 text-erp-muted">
+        <p className="mt-1.5 text-sm text-slate-500">
           Controle de operações de importação/exportação e fluxo de caixa
         </p>
       </div>
 
       <section>
-        <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-erp-muted">
+        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
           Indicadores financeiros
         </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -80,7 +80,7 @@ export default function DashboardPage() {
       </section>
 
       <section>
-        <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-erp-muted">
+        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
           Módulos
         </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

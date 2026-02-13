@@ -75,31 +75,31 @@ export default function ContasAReceberPage() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-bold text-erp-light">
+      <div className="pb-2">
+        <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
           Contas a Receber · Comex
         </h1>
-        <p className="mt-1 text-erp-muted">
+        <p className="mt-1.5 text-sm text-slate-500">
           Exportação, vendas nacionais e inadimplência
         </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-3">
-        <div className="glass-card rounded-lg p-4">
-          <p className="text-sm text-erp-muted">A receber (30 dias)</p>
-          <p className="mt-1 text-xl font-bold text-erp-light">
+        <div className="glass-card rounded-xl p-4">
+          <p className="text-xs font-medium text-slate-500">A receber (30 dias)</p>
+          <p className="mt-1 text-xl font-semibold tabular-nums text-slate-900">
             {formatMoeda(total(aReceber), "BRL")}
           </p>
         </div>
-        <div className="glass-card rounded-lg p-4">
-          <p className="text-sm text-erp-muted">Em atraso</p>
-          <p className="mt-1 text-xl font-bold text-rose-400">
+        <div className="glass-card rounded-xl p-4">
+          <p className="text-xs font-medium text-slate-500">Em atraso</p>
+          <p className="mt-1 text-xl font-semibold tabular-nums text-rose-600">
             {formatMoeda(total(emAtraso), "BRL")}
           </p>
         </div>
-        <div className="glass-card rounded-lg p-4">
-          <p className="text-sm text-erp-muted">Recebido este mês</p>
-          <p className="mt-1 text-xl font-bold text-erp-light">
+        <div className="glass-card rounded-xl p-4">
+          <p className="text-xs font-medium text-slate-500">Recebido este mês</p>
+          <p className="mt-1 text-xl font-semibold tabular-nums text-slate-900">
             {formatMoeda(total(recebido), "BRL")}
           </p>
         </div>
@@ -115,10 +115,10 @@ export default function ContasAReceberPage() {
                     key={s}
                     onClick={() => setFiltro(s)}
                     className={cn(
-                      "rounded-lg px-4 py-2 text-sm font-medium",
+                      "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                       filtro === s
-                        ? "border border-erp-dark bg-erp-gray text-erp-light"
-                        : "text-erp-muted hover:bg-erp-dark hover:text-erp-light"
+                        ? "border border-slate-300 bg-slate-100 text-slate-900"
+                        : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
                     )}
                   >
                     {s === "todas"
@@ -137,12 +137,12 @@ export default function ContasAReceberPage() {
               placeholder="Buscar..."
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
-              className="w-48 rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light placeholder-erp-muted outline-none focus:border-erp-light"
+              className="w-48 rounded-lg border border-slate-200 bg-slate-50/80 px-4 py-2 text-sm text-slate-800 placeholder-slate-400 outline-none transition-colors focus:border-slate-300 focus:bg-white focus:ring-1 focus:ring-slate-200"
             />
           </div>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="rounded-lg bg-erp-gray px-4 py-2 text-sm font-medium text-erp-light hover:bg-white/10"
+            className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-800"
           >
             {showForm ? "Cancelar" : "+ Nova receita"}
           </button>
@@ -151,14 +151,14 @@ export default function ContasAReceberPage() {
         {showForm && (
           <form
             onSubmit={handleSubmit}
-            className="glass-card space-y-4 rounded-lg p-6"
+            className="glass-card space-y-5 rounded-xl p-6"
           >
-            <h3 className="font-semibold text-erp-light">
+            <h3 className="text-base font-semibold text-slate-900">
               Nova conta a receber
             </h3>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Cliente
                 </label>
                 <input
@@ -167,11 +167,11 @@ export default function ContasAReceberPage() {
                   onChange={(e) =>
                     setForm({ ...form, cliente: e.target.value })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Descrição / NF
                 </label>
                 <input
@@ -180,11 +180,11 @@ export default function ContasAReceberPage() {
                   onChange={(e) =>
                     setForm({ ...form, descricao: e.target.value })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Vencimento
                 </label>
                 <input
@@ -194,11 +194,11 @@ export default function ContasAReceberPage() {
                   onChange={(e) =>
                     setForm({ ...form, vencimento: e.target.value })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Valor
                 </label>
                 <input
@@ -212,11 +212,11 @@ export default function ContasAReceberPage() {
                       valor: parseFloat(e.target.value) || 0,
                     })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Moeda
                 </label>
                 <select
@@ -224,7 +224,7 @@ export default function ContasAReceberPage() {
                   onChange={(e) =>
                     setForm({ ...form, moeda: e.target.value as Moeda })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 >
                   <option value="BRL">BRL</option>
                   <option value="USD">USD</option>
@@ -232,7 +232,7 @@ export default function ContasAReceberPage() {
                 </select>
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Tipo
                 </label>
                 <select
@@ -240,7 +240,7 @@ export default function ContasAReceberPage() {
                   onChange={(e) =>
                     setForm({ ...form, tipo: e.target.value as TipoOperacao })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 >
                   <option value="nacional">Nacional</option>
                   <option value="exportacao">Exportação</option>
@@ -249,67 +249,67 @@ export default function ContasAReceberPage() {
             </div>
             <button
               type="submit"
-              className="rounded-lg bg-erp-gray px-4 py-2 text-sm font-medium text-erp-light hover:bg-white/10"
+              className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-800"
             >
               Salvar
             </button>
           </form>
         )}
 
-        <div className="glass-card overflow-hidden rounded-lg">
+        <div className="glass-card overflow-hidden rounded-xl">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-erp-dark">
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                <tr className="border-b border-slate-200">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Cliente
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Descrição
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Tipo
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Vencimento
                   </th>
-                  <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-right text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Valor
                   </th>
-                  <th className="px-6 py-4 text-center text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Status
                   </th>
-                  <th className="px-6 py-4 text-center text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Ações
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {filtered.map((c) => (
-                  <tr key={c.id} className="border-b border-white/5">
-                    <td className="px-6 py-4 text-erp-light">{c.cliente}</td>
-                    <td className="px-6 py-4 text-erp-light">{c.descricao}</td>
+                  <tr key={c.id} className="border-b border-slate-100">
+                    <td className="px-6 py-4 text-slate-900">{c.cliente}</td>
+                    <td className="px-6 py-4 text-slate-900">{c.descricao}</td>
                     <td className="px-6 py-4">
                       <span
                         className={cn(
-                          "rounded px-2 py-0.5 text-xs",
+                          "rounded px-2 py-0.5 text-xs font-medium",
                           c.tipo === "exportacao"
-                            ? "bg-erp-gray text-erp-light"
-                            : "bg-erp-gray text-erp-muted"
+                            ? "bg-blue-100 text-blue-800"
+                            : "bg-slate-100 text-slate-600"
                         )}
                       >
                         {c.tipo}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-erp-light">
+                    <td className="px-6 py-4 text-slate-900">
                       {formatData(c.vencimento)}
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <span className="text-erp-light">
+                      <span className="font-medium tabular-nums text-slate-900">
                         {formatMoeda(c.valor, c.moeda)}
                       </span>
                       {c.moeda !== "BRL" && (
-                        <span className="ml-1 text-xs text-erp-muted">
+                        <span className="ml-1 text-xs text-slate-500">
                           ≈ {formatMoeda(valorEmBRL(c), "BRL")}
                         </span>
                       )}
@@ -317,13 +317,10 @@ export default function ContasAReceberPage() {
                     <td className="px-6 py-4 text-center">
                       <span
                         className={cn(
-                          "rounded-full px-2 py-1 text-xs",
-                          c.status === "em_atraso" &&
-"bg-erp-black text-erp-light",
-                            c.status === "a_receber" &&
-                            "bg-erp-gray text-erp-light",
-                          c.status === "recebido" &&
-                            "bg-erp-dark text-erp-light"
+                          "rounded-full px-2 py-1 text-xs font-medium",
+                          c.status === "em_atraso" && "bg-rose-100 text-rose-800",
+                          c.status === "a_receber" && "bg-amber-100 text-amber-800",
+                          c.status === "recebido" && "bg-emerald-100 text-emerald-800"
                         )}
                       >
                         {c.status === "a_receber"
@@ -339,7 +336,7 @@ export default function ContasAReceberPage() {
                           onClick={() =>
                             updateContaReceber(c.id, { status: "recebido" })
                           }
-                          className="text-sm text-erp-light hover:text-erp-light"
+                          className="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900"
                         >
                           Marcar recebido
                         </button>

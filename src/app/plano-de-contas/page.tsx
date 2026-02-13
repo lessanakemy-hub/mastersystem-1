@@ -1,9 +1,9 @@
 export default function PlanoDeContasPage() {
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-bold text-erp-light">Plano de Contas</h1>
-        <p className="mt-1 text-erp-muted">
+      <div className="pb-2">
+        <h1 className="text-2xl font-semibold tracking-tight text-slate-900">Plano de Contas</h1>
+        <p className="mt-1.5 text-sm text-slate-500">
           Categorias, centros de custo e estrutura contábil
         </p>
       </div>
@@ -13,70 +13,70 @@ export default function PlanoDeContasPage() {
           <input
             type="search"
             placeholder="Buscar conta..."
-            className="rounded-lg border border-white/10 bg-erp-gray px-4 py-2 text-erp-light placeholder-erp-muted outline-none focus:border-white/20 w-64"
+            className="w-64 rounded-lg border border-slate-200 bg-slate-50/80 px-4 py-2 text-sm text-slate-800 placeholder-slate-400 outline-none transition-colors focus:border-slate-300 focus:bg-white focus:ring-1 focus:ring-slate-200"
           />
-          <button className="rounded-lg bg-erp-gray px-4 py-2 text-sm font-medium text-erp-light hover:bg-erp-gray">
+          <button className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-800">
             + Nova conta
           </button>
         </div>
 
-        <div className="glass-card overflow-hidden rounded-lg">
+        <div className="glass-card overflow-hidden rounded-xl">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/10">
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                <tr className="border-b border-slate-200">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Código
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Conta
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Tipo
                   </th>
-                  <th className="px-6 py-4 text-center text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider text-slate-500">
                     Centro de custo
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-erp-dark">
-                  <td className="px-6 py-4 font-mono text-sm text-erp-light">1</td>
-                  <td className="px-6 py-4 text-erp-light">Ativo</td>
-                  <td className="px-6 py-4 text-erp-muted">Grupo</td>
-                  <td className="px-6 py-4 text-center text-erp-muted">—</td>
+                <tr className="border-b border-slate-100">
+                  <td className="px-6 py-4 font-mono text-sm text-slate-900">1</td>
+                  <td className="px-6 py-4 text-slate-900">Ativo</td>
+                  <td className="px-6 py-4 text-slate-500">Grupo</td>
+                  <td className="px-6 py-4 text-center text-slate-400">—</td>
                 </tr>
-                <tr className="border-b border-erp-dark">
-                  <td className="px-6 py-4 font-mono text-sm text-erp-light pl-10">1.1</td>
-                  <td className="px-6 py-4 text-erp-light">Ativo Circulante</td>
-                  <td className="px-6 py-4 text-erp-muted">Subgrupo</td>
-                  <td className="px-6 py-4 text-center text-erp-muted">—</td>
+                <tr className="border-b border-slate-100">
+                  <td className="pl-10 px-6 py-4 font-mono text-sm text-slate-900">1.1</td>
+                  <td className="px-6 py-4 text-slate-900">Ativo Circulante</td>
+                  <td className="px-6 py-4 text-slate-500">Subgrupo</td>
+                  <td className="px-6 py-4 text-center text-slate-400">—</td>
                 </tr>
-                <tr className="border-b border-erp-dark">
-                  <td className="px-6 py-4 font-mono text-sm text-erp-light pl-14">1.1.01</td>
-                  <td className="px-6 py-4 text-erp-light">Caixa</td>
-                  <td className="px-6 py-4 text-erp-light">Conta</td>
+                <tr className="border-b border-slate-100">
+                  <td className="pl-14 px-6 py-4 font-mono text-sm text-slate-900">1.1.01</td>
+                  <td className="px-6 py-4 text-slate-900">Caixa</td>
+                  <td className="px-6 py-4 text-slate-900">Conta</td>
                   <td className="px-6 py-4 text-center">
-                    <span className="rounded bg-erp-gray px-2 py-1 text-xs text-erp-muted">
+                    <span className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-600">
                       Administrativo
                     </span>
                   </td>
                 </tr>
-                <tr className="border-b border-erp-dark">
-                  <td className="px-6 py-4 font-mono text-sm text-erp-light pl-14">1.1.02</td>
-                  <td className="px-6 py-4 text-erp-light">Bancos</td>
-                  <td className="px-6 py-4 text-erp-light">Conta</td>
+                <tr className="border-b border-slate-100">
+                  <td className="pl-14 px-6 py-4 font-mono text-sm text-slate-900">1.1.02</td>
+                  <td className="px-6 py-4 text-slate-900">Bancos</td>
+                  <td className="px-6 py-4 text-slate-900">Conta</td>
                   <td className="px-6 py-4 text-center">
-                    <span className="rounded bg-erp-gray px-2 py-1 text-xs text-erp-muted">
+                    <span className="rounded bg-slate-100 px-2 py-1 text-xs font-medium text-slate-600">
                       —
                     </span>
                   </td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 font-mono text-sm text-erp-light">3</td>
-                  <td className="px-6 py-4 text-erp-light">Despesas</td>
-                  <td className="px-6 py-4 text-erp-muted">Grupo</td>
-                  <td className="px-6 py-4 text-center text-erp-muted">—</td>
+                  <td className="px-6 py-4 font-mono text-sm text-slate-900">3</td>
+                  <td className="px-6 py-4 text-slate-900">Despesas</td>
+                  <td className="px-6 py-4 text-slate-500">Grupo</td>
+                  <td className="px-6 py-4 text-center text-slate-400">—</td>
                 </tr>
               </tbody>
             </table>

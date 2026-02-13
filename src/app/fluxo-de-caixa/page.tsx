@@ -68,11 +68,11 @@ export default function FluxoDeCaixaPage() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-bold text-erp-light">
+      <div className="pb-2">
+        <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
           Fluxo de Caixa · Multi-moeda
         </h1>
-        <p className="mt-1 text-erp-muted">
+        <p className="mt-1.5 text-sm text-slate-500">
           Entradas, saídas e projeção convertidos em BRL
         </p>
       </div>
@@ -82,10 +82,10 @@ export default function FluxoDeCaixaPage() {
           <button
             key={p}
             onClick={() => setPeriodo(p)}
-            className={`rounded-lg px-4 py-2 text-sm font-medium ${
+            className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
               periodo === p
-                ? "border border-erp-dark bg-erp-gray text-erp-light"
-                : "text-erp-muted hover:bg-erp-dark hover:text-erp-light"
+                ? "border border-slate-300 bg-slate-100 text-slate-900"
+                : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
             }`}
           >
             {p === "mes" ? "Mês atual" : p === "30" ? "30 dias" : "60 dias"}
@@ -94,48 +94,48 @@ export default function FluxoDeCaixaPage() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="glass-card rounded-lg p-6">
-          <p className="text-sm text-erp-muted">Total entradas</p>
-          <p className="mt-1 text-2xl font-bold text-erp-light">
+        <div className="glass-card rounded-xl p-6">
+          <p className="text-xs font-medium text-slate-500">Total entradas</p>
+          <p className="mt-1 text-xl font-semibold tabular-nums text-slate-900">
             {formatMoeda(entradas, "BRL")}
           </p>
         </div>
-        <div className="glass-card rounded-lg p-6">
-          <p className="text-sm text-erp-muted">Total saídas</p>
-          <p className="mt-1 text-2xl font-bold text-rose-400">
+        <div className="glass-card rounded-xl p-6">
+          <p className="text-xs font-medium text-slate-500">Total saídas</p>
+          <p className="mt-1 text-xl font-semibold tabular-nums text-rose-600">
             {formatMoeda(saidas, "BRL")}
           </p>
         </div>
-        <div className="glass-card rounded-lg p-6">
-          <p className="text-sm text-erp-muted">Saldo líquido</p>
-          <p className="mt-1 text-2xl font-bold text-erp-light">
+        <div className="glass-card rounded-xl p-6">
+          <p className="text-xs font-medium text-slate-500">Saldo líquido</p>
+          <p className="mt-1 text-xl font-semibold tabular-nums text-slate-900">
             {formatMoeda(saldo, "BRL")}
           </p>
         </div>
-        <div className="glass-card rounded-lg p-6">
-          <p className="text-sm text-erp-muted">Previsão (a receber − a pagar)</p>
-          <p className="mt-1 text-2xl font-bold text-erp-light">
+        <div className="glass-card rounded-xl p-6">
+          <p className="text-xs font-medium text-slate-500">Previsão (a receber − a pagar)</p>
+          <p className="mt-1 text-xl font-semibold tabular-nums text-slate-900">
             {formatMoeda(aReceber - aPagar, "BRL")}
           </p>
         </div>
       </div>
 
       {chartData.length > 0 && (
-        <div className="glass-card rounded-lg p-6">
-          <h3 className="font-semibold text-erp-light">
+        <div className="glass-card rounded-xl p-6">
+          <h3 className="font-semibold text-slate-900">
             Fluxo por categoria
           </h3>
           <div className="mt-4 h-64">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                 <XAxis
                   dataKey="name"
-                  stroke="#5A5A5A"
+                  stroke="#64748b"
                   fontSize={12}
                 />
                 <YAxis
-                  stroke="#5A5A5A"
+                  stroke="#64748b"
                   fontSize={12}
                   tickFormatter={(v) =>
                     `R$ ${(v / 1000).toFixed(0)}k`
@@ -143,9 +143,10 @@ export default function FluxoDeCaixaPage() {
                 />
                 <Tooltip
                   contentStyle={{
-                    background: "#2A2A2A",
-                    border: "1px solid #3A3A3A",
+                    background: "#ffffff",
+                    border: "1px solid #e2e8f0",
                     borderRadius: "8px",
+                    boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
                   }}
                   formatter={(value: number) => [
                     formatMoeda(value, "BRL"),
@@ -153,47 +154,47 @@ export default function FluxoDeCaixaPage() {
                   ]}
                 />
                 <Legend />
-                <Bar dataKey="Entradas" fill="#5A5A5A" radius={[4, 4, 0, 0]} />
-                <Bar dataKey="Saídas" fill="#3A3A3A" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="Entradas" fill="#0d9488" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="Saídas" fill="#e11d48" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
       )}
 
-      <div className="glass-card overflow-hidden rounded-lg">
-        <h3 className="border-b border-erp-dark px-6 py-4 font-semibold text-erp-light">
+      <div className="glass-card overflow-hidden rounded-xl">
+        <h3 className="border-b border-slate-200 px-6 py-4 font-semibold text-slate-900">
           Lançamentos
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-erp-dark">
-                <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+              <tr className="border-b border-slate-200">
+                <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Data
                 </th>
-                <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Descrição
                 </th>
-                <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Categoria
                 </th>
-                <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-erp-muted">
+                <th className="px-6 py-4 text-right text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Valor
                 </th>
               </tr>
             </thead>
             <tbody>
               {lancamentos.map((l) => (
-                <tr key={l.id} className="border-b border-white/5">
-                  <td className="px-6 py-4 text-erp-light">
+                <tr key={l.id} className="border-b border-slate-100">
+                  <td className="px-6 py-4 text-slate-900">
                     {formatData(l.data)}
                   </td>
-                  <td className="px-6 py-4 text-erp-light">{l.descricao}</td>
-                  <td className="px-6 py-4 text-erp-muted">{l.categoria}</td>
+                  <td className="px-6 py-4 text-slate-900">{l.descricao}</td>
+                  <td className="px-6 py-4 text-slate-500">{l.categoria}</td>
                   <td
-                    className={`px-6 py-4 text-right font-medium ${
-                      l.tipo === "entrada" ? "text-erp-light" : "text-erp-muted"
+                    className={`px-6 py-4 text-right font-medium tabular-nums ${
+                      l.tipo === "entrada" ? "text-emerald-600" : "text-slate-500"
                     }`}
                   >
                     {l.tipo === "entrada" ? "+" : "−"}{" "}

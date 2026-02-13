@@ -44,20 +44,20 @@ export function ModuleLinkCard({
     <Link
       href={href}
       className={cn(
-        "glass-card group flex items-start justify-between p-6 transition-all hover:border-erp-gray",
+        "glass-card group flex items-center justify-between gap-4 p-5 transition-all",
         className
       )}
     >
-      <div className="flex gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-erp-dark bg-erp-gray">
-          {Icon && <Icon className="h-6 w-6 text-erp-light" />}
+      <div className="flex min-w-0 flex-1 items-center gap-4">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-2 group-hover:bg-slate-100 transition-colors">
+          {Icon && <Icon className="h-5 w-5 text-slate-600" />}
         </div>
-        <div>
-          <h3 className="font-semibold text-erp-light">{title}</h3>
-          <p className="mt-1 text-sm text-erp-muted">{description}</p>
+        <div className="min-w-0">
+          <h3 className="font-semibold text-slate-900">{title}</h3>
+          <p className="mt-0.5 text-sm text-slate-500 line-clamp-2">{description}</p>
         </div>
       </div>
-      <ChevronRight className="h-5 w-5 shrink-0 text-erp-muted transition-transform group-hover:translate-x-1 group-hover:text-erp-light" />
+      <ChevronRight className="h-5 w-5 shrink-0 text-slate-400 transition-all group-hover:translate-x-0.5 group-hover:text-slate-600" />
     </Link>
   );
 }

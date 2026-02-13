@@ -9,6 +9,7 @@ import {
   TrendingUp,
   Landmark,
   AlertCircle,
+  Ship,
   type LucideIcon,
 } from "lucide-react";
 
@@ -20,6 +21,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   TrendingUp,
   Landmark,
   AlertCircle,
+  Ship,
 };
 
 interface GlassCardProps {
@@ -47,29 +49,28 @@ export function GlassCard({
     <div
       className={cn(
         "glass-card p-6",
-        "hover:shadow-glow",
         className
       )}
     >
       <div className="flex items-start justify-between">
-        <div>
-          <p className="text-sm font-medium text-erp-muted">{title}</p>
-          <p className="mt-2 text-2xl font-bold text-erp-light tracking-tight">
+        <div className="min-w-0 flex-1">
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{title}</p>
+          <p className="mt-2 text-xl font-semibold tabular-nums text-slate-900">
             {value}
           </p>
           {subtitle && (
-            <p className="mt-1 text-xs text-erp-muted">{subtitle}</p>
+            <p className="mt-1 text-xs text-slate-500">{subtitle}</p>
           )}
           {trend && (
             <p
               className={cn(
                 "mt-2 text-sm font-medium",
-                trend.isPositive ? "text-erp-light" : "text-erp-light"
+                trend.isPositive ? "text-emerald-600" : "text-slate-500"
               )}
             >
               {trend.isPositive ? "↑" : "↓"} {Math.abs(trend.value)}%
               {trend.label && (
-                <span className="ml-1 text-erp-muted font-normal">
+                <span className="ml-1 text-slate-500 font-normal">
                   {trend.label}
                 </span>
               )}
@@ -80,8 +81,8 @@ export function GlassCard({
           const Icon =
             typeof iconProp === "string" ? ICON_MAP[iconProp] : iconProp;
           return Icon ? (
-            <div className="rounded-lg bg-erp-gray border border-erp-dark p-3">
-              <Icon className="h-6 w-6 text-erp-light" />
+            <div className="ml-4 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-2">
+              <Icon className="h-5 w-5 text-slate-600" />
             </div>
           ) : null;
         })()}

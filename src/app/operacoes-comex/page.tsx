@@ -73,11 +73,11 @@ export default function OperacoesComexPage() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-2xl font-bold text-erp-light">
+      <div className="pb-2">
+        <h1 className="text-2xl font-semibold tracking-tight text-slate-900">
           Operações de Comércio Exterior
         </h1>
-        <p className="mt-1 text-erp-muted">
+        <p className="mt-1.5 text-sm text-slate-500">
           Importação, exportação e acompanhamento de operações
         </p>
       </div>
@@ -91,10 +91,10 @@ export default function OperacoesComexPage() {
                   key={s}
                   onClick={() => setFiltro(s)}
                   className={cn(
-                    "rounded-lg px-4 py-2 text-sm font-medium",
+                    "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                     filtro === s
-                      ? "border border-erp-dark bg-erp-gray text-erp-light"
-                      : "text-erp-muted hover:bg-erp-dark hover:text-erp-light"
+                      ? "bg-slate-900 text-white"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800"
                   )}
                 >
                   {s === "todas" ? "Todas" : s === "importacao" ? "Importação" : "Exportação"}
@@ -106,12 +106,12 @@ export default function OperacoesComexPage() {
               placeholder="Buscar por número ou descrição..."
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
-              className="w-64 rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light placeholder-erp-muted outline-none focus:border-erp-light"
+              className="w-64 rounded-lg border border-slate-200 bg-slate-50/80 px-4 py-2 text-sm text-slate-800 placeholder-slate-400 outline-none transition-colors focus:border-slate-300 focus:bg-white focus:ring-1 focus:ring-slate-200"
             />
           </div>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="rounded-lg bg-erp-gray px-4 py-2 text-sm font-medium text-erp-light hover:bg-white/10"
+            className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-800"
           >
             {showForm ? "Cancelar" : "+ Nova operação"}
           </button>
@@ -120,14 +120,14 @@ export default function OperacoesComexPage() {
         {showForm && (
           <form
             onSubmit={handleSubmit}
-            className="glass-card space-y-4 rounded-lg p-6"
+            className="glass-card space-y-5 rounded-xl p-6"
           >
-            <h3 className="font-semibold text-erp-light">
+            <h3 className="text-base font-semibold text-slate-900">
               Nova operação Comex
             </h3>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Número
                 </label>
                 <input
@@ -135,11 +135,11 @@ export default function OperacoesComexPage() {
                   placeholder="IMP-2025-003"
                   value={form.numero}
                   onChange={(e) => setForm({ ...form, numero: e.target.value })}
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Tipo
                 </label>
                 <select
@@ -147,14 +147,14 @@ export default function OperacoesComexPage() {
                   onChange={(e) =>
                     setForm({ ...form, tipo: e.target.value as TipoOperacao })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 >
                   <option value="importacao">Importação</option>
                   <option value="exportacao">Exportação</option>
                 </select>
               </div>
               <div className="sm:col-span-2">
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Descrição
                 </label>
                 <input
@@ -163,11 +163,11 @@ export default function OperacoesComexPage() {
                   onChange={(e) =>
                     setForm({ ...form, descricao: e.target.value })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Valor original
                 </label>
                 <input
@@ -181,11 +181,11 @@ export default function OperacoesComexPage() {
                       valorOriginal: parseFloat(e.target.value) || 0,
                     })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Moeda
                 </label>
                 <select
@@ -199,14 +199,14 @@ export default function OperacoesComexPage() {
                       cotacao: cot,
                     });
                   }}
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 >
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
                 </select>
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Data
                 </label>
                 <input
@@ -216,11 +216,11 @@ export default function OperacoesComexPage() {
                   onChange={(e) =>
                     setForm({ ...form, dataOperacao: e.target.value })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-erp-muted">
+                <label className="mb-1.5 block text-xs font-medium text-slate-600">
                   Incoterm
                 </label>
                 <input
@@ -229,85 +229,85 @@ export default function OperacoesComexPage() {
                   onChange={(e) =>
                     setForm({ ...form, incoterm: e.target.value })
                   }
-                  className="w-full rounded-lg border border-erp-dark bg-erp-gray px-4 py-2 text-erp-light outline-none"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm text-slate-800 outline-none transition-colors focus:border-slate-300 focus:ring-1 focus:ring-slate-200"
                 />
               </div>
             </div>
             <button
               type="submit"
-              className="rounded-lg bg-erp-gray px-4 py-2 text-sm font-medium text-erp-light hover:bg-white/10"
+              className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-slate-800"
             >
               Salvar
             </button>
           </form>
         )}
 
-        <div className="glass-card overflow-hidden rounded-lg">
+        <div className="glass-card overflow-hidden rounded-xl">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-erp-dark">
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                <tr className="border-b border-slate-200 bg-slate-50/50">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-slate-500">
                     Número
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-slate-500">
                     Tipo
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-slate-500">
                     Descrição
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-left text-xs font-semibold uppercase tracking-widest text-slate-500">
                     Data
                   </th>
-                  <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-right text-xs font-semibold uppercase tracking-widest text-slate-500">
                     Valor
                   </th>
-                  <th className="px-6 py-4 text-right text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-right text-xs font-semibold uppercase tracking-widest text-slate-500">
                     BRL
                   </th>
-                  <th className="px-6 py-4 text-center text-xs font-medium uppercase tracking-wider text-erp-muted">
+                  <th className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-widest text-slate-500">
                     Status
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {filtered.map((o) => (
-                  <tr key={o.id} className="border-b border-white/5">
-                    <td className="px-6 py-4 font-medium text-erp-light">
+                  <tr key={o.id} className="border-b border-slate-100 transition-colors hover:bg-slate-50/50">
+                    <td className="px-6 py-4 font-medium tabular-nums text-slate-900">
                       {o.numero}
                     </td>
                     <td className="px-6 py-4">
                       <span
                         className={cn(
-                          "rounded px-2 py-0.5 text-xs",
+                          "inline-flex rounded-md px-2 py-1 text-xs font-medium",
                           o.tipo === "importacao"
-                            ? "bg-erp-gray text-erp-light"
-                            : "bg-erp-dark text-erp-light"
+                            ? "bg-slate-100 text-slate-700"
+                            : "bg-slate-100 text-slate-700"
                         )}
                       >
                         {o.tipo}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-erp-light">{o.descricao}</td>
-                    <td className="px-6 py-4 text-erp-muted">
+                    <td className="px-6 py-4 text-sm text-slate-700">{o.descricao}</td>
+                    <td className="px-6 py-4 text-sm tabular-nums text-slate-500">
                       {formatData(o.dataOperacao)}
                     </td>
-                    <td className="px-6 py-4 text-right text-erp-light">
+                    <td className="px-6 py-4 text-right text-sm font-medium tabular-nums text-slate-900">
                       {formatMoeda(o.valorOriginal, o.moeda)}
                     </td>
-                    <td className="px-6 py-4 text-right text-erp-light">
+                    <td className="px-6 py-4 text-right text-sm font-medium tabular-nums text-slate-900">
                       {formatMoeda(o.valorBRL, "BRL")}
                     </td>
                     <td className="px-6 py-4 text-center">
                       <span
                         className={cn(
-                          "rounded-full px-2 py-1 text-xs",
+                          "inline-flex rounded-full px-2.5 py-1 text-xs font-medium",
                           o.status === "em_andamento" &&
-                            "bg-erp-gray text-erp-light",
+                            "bg-amber-50 text-amber-700",
                           o.status === "liquidado" &&
-                            "bg-erp-dark text-erp-light",
+                            "bg-emerald-50 text-emerald-700",
                           o.status === "cancelado" &&
-                            "bg-erp-black text-erp-light"
+                            "bg-red-50 text-red-700"
                         )}
                       >
                         {o.status === "em_andamento"

@@ -47,16 +47,16 @@ export function Sidebar({ collapsed = false, onCollapsedChange }: SidebarProps) 
   return (
     <aside
       className={cn(
-        "fixed left-0 top-0 z-40 flex h-screen flex-col border-r border-erp-gray transition-all duration-300",
+        "fixed left-0 top-0 z-40 flex h-screen flex-col border-r border-slate-200 transition-all duration-300",
         "backdrop-blur-md",
         collapsed ? "w-[72px]" : "w-[260px]"
       )}
       style={{
-        background: "rgba(18, 18, 18, 0.95)",
+        background: "#ffffff",
       }}
     >
       {/* Logo */}
-      <div className="relative flex h-16 items-center justify-between border-b border-erp-gray px-4">
+      <div className="relative flex h-16 items-center justify-between border-b border-slate-200 px-4">
         <Link
           href="/"
           className={cn(
@@ -64,17 +64,17 @@ export function Sidebar({ collapsed = false, onCollapsedChange }: SidebarProps) 
             collapsed && "mx-auto"
           )}
         >
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-erp-gray bg-erp-gray">
-            <Wallet className="h-4 w-4 text-erp-light" />
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-900">
+            <Wallet className="h-4 w-4 text-white" />
           </div>
           {!collapsed && (
-            <span className="font-semibold text-erp-light">MasterPort Comex</span>
+            <span className="text-sm font-semibold tracking-tight text-slate-900">MasterPort Comex</span>
           )}
         </Link>
         {!collapsed && (
         <button
           onClick={handleToggle}
-          className="rounded-lg p-2 text-erp-muted transition-colors hover:bg-erp-dark hover:text-erp-light"
+          className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-800"
           aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           <ChevronLeft className="h-5 w-5" />
@@ -83,7 +83,7 @@ export function Sidebar({ collapsed = false, onCollapsedChange }: SidebarProps) 
         {collapsed && (
           <button
             onClick={handleToggle}
-            className="absolute -right-3 top-20 z-50 flex h-6 w-6 items-center justify-center rounded-full border border-erp-gray bg-erp-gray text-erp-muted shadow-lg backdrop-blur-sm transition-colors hover:bg-erp-gray hover:text-erp-light"
+            className="absolute -right-3 top-20 z-50 flex h-6 w-6 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-md transition-colors hover:bg-slate-50 hover:text-slate-800"
             aria-label="Expand sidebar"
           >
             <ChevronRight className="h-3.5 w-3.5" />
@@ -104,15 +104,15 @@ export function Sidebar({ collapsed = false, onCollapsedChange }: SidebarProps) 
               className={cn(
                 "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
                 isActive
-                  ? "bg-erp-gray text-erp-light"
-                  : "text-erp-muted hover:bg-erp-dark hover:text-erp-light",
+                  ? "bg-slate-100 text-slate-900 border-l-2 border-slate-900 pl-[14px]"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-800",
                 collapsed && "justify-center px-2"
               )}
             >
               <Icon
                 className={cn(
                   "h-5 w-5 shrink-0",
-                  isActive && "text-erp-light"
+                  isActive && "text-slate-900"
                 )}
               />
               {!collapsed && <span>{item.label}</span>}
@@ -121,11 +121,6 @@ export function Sidebar({ collapsed = false, onCollapsedChange }: SidebarProps) 
         })}
       </nav>
 
-      {/* Bottom accent */}
-      <div
-        className="h-1 w-full bg-erp-muted opacity-30"
-        aria-hidden
-      />
     </aside>
   );
 }
